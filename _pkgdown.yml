@@ -1,0 +1,26 @@
+# pkgdown::build_reference(preview = TRUE)
+# https://pkgdown.r-lib.org/articles/pkgdown.html
+# https://pkgdown.r-lib.org/reference/build_reference.html
+
+reference:
+- title: "DIVIPOLA"
+  desc: >
+    DIVIPOLA-related utility functions.
+- contents:
+  - fix_dept_cod
+  - fix_muni_cod
+  - join_divipola_dept_cod
+  - join_divipola_muni_cod
+- title: "Ingest data downloaded from DANE"
+  desc: >
+    Functions to ingest most common and convenient formats
+- contents:
+  - ingest_zipped_sav
+- title: "DDI"
+  desc: "Functions for processing DDI metadata downloaded from DANE"
+- contents:
+  - matches("_ddi_")
+- title: "Miscelaneous"
+  desc: "Miscelaneous functions, probably, waiting to be refactored / organized"
+- contents:
+

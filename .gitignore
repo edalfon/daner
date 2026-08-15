@@ -1,0 +1,16 @@
+inst/doc
+docs
+.Rproj.user
+.Rhistory
+.Rdata
+.httr-oauth
+.DS_Store
+.radian_profile
+
+# raw/bulk EEVV vital-statistics data - not ready to publish yet
+data-raw/EEVV/
+inst/EEVV/
+tests/testthat/test_data/Nac_2008_2011_SPSS.zip
+
+# broken/unfinished, not part of the working package
+R/proypob.R

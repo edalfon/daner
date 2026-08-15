@@ -1,0 +1,29 @@
+Package: daner
+Title: What the Package Does (one line, title case)
+Version: 0.0.2
+Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    dplyr,
+    haven,
+    magrittr,
+    purrr,
+    rlang,
+    scales,
+    stringr,
+    tibble,
+    tools,
+    usethis,
+    xml2
+Suggests: 
+    testthat (>= 3.0.0),
+    spelling,
+    knitr,
+    rmarkdown
+Config/testthat/edition: 3
+Language: en-US
+VignetteBuilder: knitr
+Config/roxygen2/version: 8.1.0
