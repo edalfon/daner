@@ -18,37 +18,57 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of daner is to ...
+daner provides helpers for working with data published by [DANE](https://www.dane.gov.co) (Departamento Administrativo Nacional de Estadística). It's just a bunch of functions accumulated over time, for tasks that come up repeatedly when working with DANE's microdata and metadata:
+
+* **DIVIPOLA codes**: standardize and join Colombia's official political-administrative division codes (departments and municipalities).
+* **DDI metadata**: parse the DDI (Data Documentation Initiative) XML files DANE publishes alongside its microdata catalogs, to list a study's files and variables and their labels.
+* **Microdata ingestion**: read the zipped SPSS (`.sav`) files DANE distributes, handling the quirks of how they're bundled (several files per zip, file names that don't match the zip name).
 
 ## Installation
 
-You can install the released version of daner from [CRAN](https://CRAN.R-project.org) with:
+daner is not on CRAN. Install the development version from GitHub with:
 
 ``` r
-install.packages("daner")
+# install.packages("remotes")
+remotes::install_github("edalfon/daner")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+### DIVIPOLA codes
 
-```{r example}
+`fix_dept_cod()` and `fix_muni_cod()` normalize department/municipality codes to their canonical, zero-padded format:
+
+```{r example-fix-cod}
 library(daner)
-## basic example code
+
+fix_dept_cod(c(5, 25, "5"))
+fix_muni_cod(c(5001, "5002"))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+`join_divipola_muni_cod()` left-joins municipality names, department, coordinates and other DIVIPOLA fields onto any data frame that has a municipality-code column:
 
-```{r cars}
-summary(cars)
+```{r example-join}
+muni_df <- data.frame(cod = c("05001", "25001"))
+
+join_divipola_muni_cod(muni_df, by = "cod")
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/master/examples>.
+### DDI metadata
 
-You can also embed plots, for example:
+`list_ddi_files()` and `get_ddi_vars()` read a DDI XML document (from a URL or a local file) and return the files/variables it describes as tidy data frames:
 
-```{r pressure, echo = FALSE}
-plot(pressure)
+```{r example-ddi, eval = FALSE}
+ddi_url <- "http://microdatos.dane.gov.co/index.php/catalog/ddi/419"
+
+list_ddi_files(ddi_url)
+get_ddi_vars(ddi_url)
 ```
 
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
+### Ingesting zipped microdata
+
+`ingest_zipped_sav()` unzips and reads the `.sav` file(s) bundled in a DANE microdata zip file:
+
+```{r example-ingest, eval = FALSE}
+ingest_zipped_sav("path/to/microdata.zip")
+```
