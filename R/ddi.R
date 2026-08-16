@@ -138,11 +138,23 @@ get_var_categories <- function(xml_node) {
   # TODO: defensive coding?, should we check here it's a node and complaint if not?
   category_nodes <- xml2::xml_find_all(xml_node, "catgry")
 
+  # extract catValu/labl per catgry node (rather than two independent
+  # xml_find_all calls across all nodes) because some DDI files (e.g. DANE's
+  # 2023/2024 EEVV) have catgry nodes with a catValu but no labl child at all
+  # (typically large code lists like municipality codes). Pooling matches
+  # across nodes would silently misalign catValu/labl, or, when a variable's
+  # catgry nodes have no labl child whatsoever, produce a length-0 labl
+  # vector that can't be recycled against catValu, erroring out entirely.
+  # xml_find_first returns a missing node (-> NA on xml_text) when absent,
+  # so this keeps catValu/labl paired 1:1 per category, with NA labels
+  # where the source XML simply omits them.
   tibble::tibble(
-    catValu = xml2::xml_find_all(category_nodes, "catValu") |>
-      xml2::xml_text(trim = TRUE),
-    labl = xml2::xml_find_all(category_nodes, "labl") |>
-      xml2::xml_text(trim = TRUE)
+    catValu = purrr::map_chr(category_nodes, \(node) {
+      xml2::xml_find_first(node, "catValu") |> xml2::xml_text(trim = TRUE)
+    }),
+    labl = purrr::map_chr(category_nodes, \(node) {
+      xml2::xml_find_first(node, "labl") |> xml2::xml_text(trim = TRUE)
+    })
   ) |>
     dplyr::mutate(dplyr::across(dplyr::everything(), \(x) clean_ddi_text(x)))
 }
