@@ -1,6 +1,6 @@
 Package: daner
 Title: Helpers for Working with DANE Data
-Version: 0.0.2
+Version: 0.0.2.9000
 Authors@R: person("edalfon", email = "edalfon@gmail.com", role = c("aut", "cre"))
 Description: Helpers for working with data published by DANE (Departamento
     Administrativo Nacional de Estadistica, Colombia's national statistics
