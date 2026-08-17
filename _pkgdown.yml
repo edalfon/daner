@@ -2,6 +2,8 @@
 # https://pkgdown.r-lib.org/articles/pkgdown.html
 # https://pkgdown.r-lib.org/reference/build_reference.html
 
+url: https://edalfon.github.io/daner/
+
 reference:
 - title: "DIVIPOLA"
   desc: >
@@ -20,7 +22,15 @@ reference:
   desc: "Functions for processing DDI metadata downloaded from DANE"
 - contents:
   - matches("_ddi_")
-- title: "Miscelaneous"
-  desc: "Miscelaneous functions, probably, waiting to be refactored / organized"
+- title: "Data"
+  desc: "DIVIPOLA codes and population data bundled with the package"
 - contents:
+  - divipola_dept
+  - divipola_muni
+  - divipola_centropob
+  - divipola_provins
+  - provins
+  - pob_2018_dept
+  - pob_2018_muni
+  - proypob_dpto_edad
 

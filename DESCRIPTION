@@ -9,10 +9,12 @@ Description: Helpers for working with data published by DANE (Departamento
     Initiative) XML metadata published alongside DANE's microdata catalogs,
     and ingest the zipped SPSS files DANE distributes.
 License: MIT + file LICENSE
-URL: https://github.com/edalfon/daner
+URL: https://github.com/edalfon/daner, https://edalfon.github.io/daner/
 BugReports: https://github.com/edalfon/daner/issues
 Encoding: UTF-8
 LazyData: true
+Depends:
+    R (>= 4.1.0)
 Imports:
     dplyr,
     haven,
@@ -25,10 +27,11 @@ Imports:
     tools,
     usethis,
     xml2
-Suggests: 
+Suggests:
     testthat (>= 3.0.0),
     spelling,
     knitr,
+    pkgdown,
     rmarkdown
 Config/testthat/edition: 3
 Language: en-US

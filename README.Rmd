@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # daner
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/edalfon/daner/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/edalfon/daner/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 daner provides helpers for working with data published by [DANE](https://www.dane.gov.co) (Departamento Administrativo Nacional de Estadística). It's just a bunch of functions accumulated over time, for tasks that come up repeatedly when working with DANE's microdata and metadata:

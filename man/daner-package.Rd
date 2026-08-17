@@ -12,6 +12,7 @@ Helpers for working with data published by DANE (Departamento Administrativo Nac
 Useful links:
 \itemize{
   \item \url{https://github.com/edalfon/daner}
+  \item \url{https://edalfon.github.io/daner/}
   \item Report bugs at \url{https://github.com/edalfon/daner/issues}
 }
 
