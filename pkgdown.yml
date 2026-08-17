@@ -1,0 +1,9 @@
+pandoc: 3.8.3
+pkgdown: 2.2.1
+pkgdown_sha: ~
+articles:
+  daner: daner.html
+last_built: 2026-08-17T17:20Z
+urls:
+  reference: https://edalfon.github.io/daner/reference
+  article: https://edalfon.github.io/daner/articles
