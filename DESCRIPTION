@@ -1,9 +1,16 @@
 Package: daner
-Title: What the Package Does (one line, title case)
+Title: Helpers for Working with DANE Data
 Version: 0.0.2
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("edalfon", email = "edalfon@gmail.com", role = c("aut", "cre"))
+Description: Helpers for working with data published by DANE (Departamento
+    Administrativo Nacional de Estadistica, Colombia's national statistics
+    agency). Provides functions to standardize and join DIVIPOLA
+    political-administrative division codes, parse DDI (Data Documentation
+    Initiative) XML metadata published alongside DANE's microdata catalogs,
+    and ingest the zipped SPSS files DANE distributes.
 License: MIT + file LICENSE
+URL: https://github.com/edalfon/daner
+BugReports: https://github.com/edalfon/daner/issues
 Encoding: UTF-8
 LazyData: true
 Imports:

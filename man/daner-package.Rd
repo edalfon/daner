@@ -4,16 +4,24 @@
 \name{daner-package}
 \alias{daner}
 \alias{daner-package}
-\title{daner: What the Package Does (one line, title case)}
+\title{daner: Helpers for Working with DANE Data}
 \description{
-What the package does (one paragraph).
+Helpers for working with data published by DANE (Departamento Administrativo Nacional de Estadistica, Colombia's national statistics agency). Provides functions to standardize and join DIVIPOLA political-administrative division codes, parse DDI (Data Documentation Initiative) XML metadata published alongside DANE's microdata catalogs, and ingest the zipped SPSS files DANE distributes.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/edalfon/daner}
+  \item Report bugs at \url{https://github.com/edalfon/daner/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: First Last \email{first.last@example.com}
+\strong{Maintainer}: edalfon \email{edalfon@gmail.com}
 
 Authors:
 \itemize{
-  \item First Last \email{first.last@example.com}
+  \item edalfon \email{edalfon@gmail.com}
 }
 
 }
