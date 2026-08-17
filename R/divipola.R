@@ -58,7 +58,7 @@ join_divipola_dept_cod <- function(lhs, by, dept_vars = c(
   }
 
   # return joined lhs, keeping original indices broken by join ####
-  lhs_fin <- lhs_fin %>% dplyr::select(-.merge)
+  lhs_fin <- lhs_fin %>% dplyr::select(-".merge")
   #row.names(lhs_fin) <-  row.names(lhs)
   # why did I want to keep original indices?
   lhs_fin
@@ -131,7 +131,7 @@ join_divipola_muni_cod <- function(lhs, by, muni_vars = c(
 	}
 
   # return joined lhs, keeping original indices ####
-	lhs_fin <- lhs_fin %>% dplyr::select(-.merge)
+	lhs_fin <- lhs_fin %>% dplyr::select(-".merge")
 	#row.names(lhs_fin) <-  row.names(lhs)
 	#TODO: why did I want to keep original indices?
 	lhs_fin

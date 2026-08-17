@@ -14,3 +14,4 @@ importFrom(magrittr,
   "%>%",
   "%T>%"
 )
+importFrom(rlang,.data)
