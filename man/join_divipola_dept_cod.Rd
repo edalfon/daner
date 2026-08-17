@@ -27,3 +27,7 @@ Left join lhs and DIVIPOLA at the department level. Useful to quickly bring
 basic data from departments (name, long, lat) to a dataset that contains
 only department code.
 }
+\examples{
+df <- data.frame(cod = c("05", "25", "11"))
+join_divipola_dept_cod(df, by = "cod")
+}

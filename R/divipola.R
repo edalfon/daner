@@ -13,6 +13,8 @@
 #' @return lhs with additional DIVIPOLA variables
 #' @export
 #' @examples
+#' df <- data.frame(cod = c("05", "25", "11"))
+#' join_divipola_dept_cod(df, by = "cod")
 join_divipola_dept_cod <- function(lhs, by, dept_vars = c(
   "dept_cod", "dept_nom", "long", "lat", "dept_nom_corto")) {
 
@@ -65,11 +67,11 @@ join_divipola_dept_cod <- function(lhs, by, dept_vars = c(
 
 
 
-#' Join DIVIPOLA department variables into lhs
+#' Join DIVIPOLA municipality variables into lhs
 #'
-#' Left join lhs and DIVIPOLA at the department level. Useful to quickly bring
-#' basic data from departments (name, long, lat) to a dataset that contains
-#' only department code.
+#' Left join lhs and DIVIPOLA at the municipality level. Useful to quickly
+#' bring basic data from municipalities (name, department, long, lat) to a
+#' dataset that contains only municipality code.
 #'
 #' @param lhs A data.frame-like
 #' @param by A character vector indicating the column in `lhs` that contains
@@ -80,6 +82,8 @@ join_divipola_dept_cod <- function(lhs, by, dept_vars = c(
 #' @return lhs with additional DIVIPOLA variables
 #' @export
 #' @examples
+#' df <- data.frame(cod = c("05001", "25001"))
+#' join_divipola_muni_cod(df, by = "cod")
 join_divipola_muni_cod <- function(lhs, by, muni_vars = c(
 	"dept_cod", "centro_poblado_cod", "dept_nom", "muni_nom",
 	"centro_poblado_nom", "tipo_centro_poblado", "long", "lat", "distrito",

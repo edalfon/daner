@@ -2,7 +2,7 @@
 % Please edit documentation in R/divipola.R
 \name{join_divipola_muni_cod}
 \alias{join_divipola_muni_cod}
-\title{Join DIVIPOLA department variables into lhs}
+\title{Join DIVIPOLA municipality variables into lhs}
 \usage{
 join_divipola_muni_cod(
   lhs,
@@ -26,7 +26,11 @@ DIVIPOLA to bring into `lhs`}
 lhs with additional DIVIPOLA variables
 }
 \description{
-Left join lhs and DIVIPOLA at the department level. Useful to quickly bring
-basic data from departments (name, long, lat) to a dataset that contains
-only department code.
+Left join lhs and DIVIPOLA at the municipality level. Useful to quickly
+bring basic data from municipalities (name, department, long, lat) to a
+dataset that contains only municipality code.
+}
+\examples{
+df <- data.frame(cod = c("05001", "25001"))
+join_divipola_muni_cod(df, by = "cod")
 }
