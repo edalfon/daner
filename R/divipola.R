@@ -29,7 +29,7 @@ join_divipola_dept_cod <- function(lhs, by, dept_vars = c(
     dplyr::mutate(dept_cod = fix_dept_cod(.data[[by]])) %>%
     dplyr::left_join(
       y = daner::divipola_dept %>%
-        dplyr::select(c("dept_cod", dept_vars)) %>%
+        dplyr::select(dplyr::all_of(c("dept_cod", dept_vars))) %>%
         dplyr::mutate(.merge = 1), # TODO: check if .merge exists
       by = c("dept_cod" = "dept_cod")
     )
@@ -100,7 +100,7 @@ join_divipola_muni_cod <- function(lhs, by, muni_vars = c(
 		dplyr::mutate(muni_cod = fix_muni_cod(lhs[[by]])) %>%
 		dplyr::left_join(
 			y = daner::divipola_muni %>%
-				dplyr::select(c("muni_cod", muni_vars)) %>%
+				dplyr::select(dplyr::all_of(c("muni_cod", muni_vars))) %>%
 				dplyr::mutate(.merge = 1),
 			by = c("muni_cod" = "muni_cod")
 		)
